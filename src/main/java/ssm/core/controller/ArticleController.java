@@ -7,9 +7,11 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import ssm.core.format.ResultCode;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import ssm.core.format.ResultCode;
 import ssm.core.entity.Article;
 import ssm.core.format.ResultMessage;
 import ssm.core.mapper.ArticleMapper;
@@ -22,6 +24,7 @@ public class ArticleController {
 	private ArticleMapper articleMapper;
 
 	@RequestMapping("/getArticleList")
+	@ResponseBody
 	public ResultMessage getList() {
 		ResultMessage rm = new ResultMessage();
 		List<Article> articles = articleMapper.selAllList();
