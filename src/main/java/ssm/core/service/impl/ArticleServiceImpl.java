@@ -7,7 +7,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import ssm.core.entity.Article;
-import ssm.core.mapper.ArticleMapper;
+import ssm.core.idao.ArticleMapper;
 import ssm.core.service.ArticleService;
 
 @Service("articleService")

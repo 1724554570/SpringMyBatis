@@ -5,7 +5,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import ssm.core.entity.Users;
-import ssm.core.mapper.UsersMapper;
+import ssm.core.idao.UsersMapper;
 import ssm.core.service.UsersService;
 
 @Service("userService")

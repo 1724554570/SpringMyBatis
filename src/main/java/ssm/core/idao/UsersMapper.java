@@ -1,4 +1,4 @@
-package ssm.core.mapper;
+package ssm.core.idao;
 
 import ssm.core.entity.Users;
 

@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import ssm.core.entity.Users;
-import ssm.core.mapper.UsersMapper;
+import ssm.core.idao.UsersMapper;
 
 @Controller
 @RequestMapping("/user")

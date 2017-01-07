@@ -17,6 +17,14 @@
         id, username, userpass, imgurl, device, ctime, utime, state
     </sql>
     
+    <select id="selectLogin" parameterType="ssm.core.entity.OUsers" resultMap="BaseResultMap">
+    	select
+        <include refid="Base_Column_List" />
+        from  onethink_users
+        where username = #{username} and userpass = #{userpass}
+    </select>
+    
+    
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List" />
