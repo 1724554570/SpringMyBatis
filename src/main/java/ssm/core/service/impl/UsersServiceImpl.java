@@ -13,14 +13,6 @@ public class UsersServiceImpl implements UsersService {
 	@Resource
 	private UsersMapper usersMapper;
 
-	public UsersMapper getUsersMapper() {
-		return usersMapper;
-	}
-
-	public void setUsersMapper(UsersMapper usersMapper) {
-		this.usersMapper = usersMapper;
-	}
-
 	public Users getUserById(int userid) {
 		System.out.println(userid);
 		return usersMapper.selectByPrimaryKey(userid);
