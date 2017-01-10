@@ -31,8 +31,6 @@ public class OUserController {
 		ResultMessage rm = new ResultMessage();
 		String name = req.getParameter("username");
 		String pass = req.getParameter("userpass");
-		System.out.println(name);
-		System.out.println(pass);
 		Map<String, Object> maps = new HashMap<String, Object>();
 		maps.put("name", name);
 		maps.put("pass", pass);
