@@ -3,15 +3,16 @@ package ssm.core.idao;
 import ssm.core.entity.Users;
 
 public interface UsersMapper {
-	int deleteByPrimaryKey(Integer id);
 
-	int insert(Users record);
+    int deleteByPrimaryKey(Integer id);
 
-	int insertSelective(Users record);
+    int insert(Users record);
 
-	Users selectByPrimaryKey(Integer id);
+    int insertSelective(Users record);
 
-	int updateByPrimaryKeySelective(Users record);
+    Users selectByPrimaryKey(Integer id);
 
-	int updateByPrimaryKey(Users record);
+    int updateByPrimaryKeySelective(Users record);
+
+    int updateByPrimaryKey(Users record);
 }

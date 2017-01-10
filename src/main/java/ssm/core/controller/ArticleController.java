@@ -11,24 +11,24 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import ssm.core.format.ResultCode;
 import ssm.core.entity.Article;
 import ssm.core.format.ResultMessage;
-import ssm.core.idao.ArticleMapper;
+import ssm.core.service.ArticleService;
 
 @Controller
 @RequestMapping("/article")
 public class ArticleController {
 
-	@Resource
-	private ArticleMapper articleMapper;
+    @Resource
+    private ArticleService articleService;
 
-	@RequestMapping("/getArticleList")
-	@ResponseBody
-	public ResultMessage getList() {
-		ResultMessage rm = new ResultMessage();
-		List<Article> articles = articleMapper.selAllList();
-		rm.setCode(ResultCode.SUCCESS);
-		rm.setMessage("查询成功。");
-		rm.setData(articles);
-		return rm;
-	}
+    @RequestMapping("/getArticleList")
+    @ResponseBody
+    public ResultMessage getList() {
+        ResultMessage rm = new ResultMessage();
+        List<Article> articles = articleService.getArticleList();
+        rm.setCode(ResultCode.SUCCESS);
+        rm.setMessage("查询成功。");
+        rm.setData(articles);
+        return rm;
+    }
 
 }

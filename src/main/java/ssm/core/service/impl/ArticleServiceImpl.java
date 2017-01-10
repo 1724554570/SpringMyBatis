@@ -12,20 +12,24 @@ import ssm.core.service.ArticleService;
 
 @Service("articleService")
 public class ArticleServiceImpl implements ArticleService {
-	@Resource
-	private ArticleMapper articleMapper;
 
-	public ArticleMapper getArticleMapper() {
-		return articleMapper;
-	}
+    @Resource
+    private ArticleMapper articleMapper;
 
-	public void setArticleMapper(ArticleMapper articleMapper) {
-		this.articleMapper = articleMapper;
-	}
+    public ArticleMapper getArticleMapper() {
+        return articleMapper;
+    }
 
-	public List<Article> getArticleList() {
-		List<Article> articles = this.articleMapper.selAllList();
-		return articles;
-	}
+    public void setArticleMapper(ArticleMapper articleMapper) {
+        this.articleMapper = articleMapper;
+    }
+
+    /**
+     * 获取文章集合
+     */
+    public List<Article> getArticleList() {
+        List<Article> articles = this.articleMapper.selAllList();
+        return articles;
+    }
 
 }

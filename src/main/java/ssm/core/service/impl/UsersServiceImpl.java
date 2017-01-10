@@ -10,11 +10,12 @@ import ssm.core.service.UsersService;
 
 @Service("userService")
 public class UsersServiceImpl implements UsersService {
-	@Resource
-	private UsersMapper usersMapper;
 
-	public Users getUserById(int userid) {
-		System.out.println(userid);
-		return usersMapper.selectByPrimaryKey(userid);
-	}
+    @Resource
+    private UsersMapper usersMapper;
+
+    public Users getUserById(int userid) {
+        System.out.println(userid);
+        return usersMapper.selectByPrimaryKey(userid);
+    }
 }
