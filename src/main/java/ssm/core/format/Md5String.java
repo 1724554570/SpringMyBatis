@@ -53,4 +53,21 @@ public class Md5String {
         System.out.println(newstr);
         return newstr;
     }
+    
+    /**
+     * 空验证
+     * @param value
+     * @return
+     */
+    public static boolean isNull(String value){
+		if(value==null){
+			return true;
+		}else{
+			value = value.trim();
+			if("".equals(value)){
+				return true;
+			}
+		}
+		return false;
+	}
 }

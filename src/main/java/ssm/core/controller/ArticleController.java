@@ -17,18 +17,24 @@ import ssm.core.service.ArticleService;
 @RequestMapping("/article")
 public class ArticleController {
 
-    @Resource
-    private ArticleService articleService;
+	@Resource
+	private ArticleService articleService;
 
-    @RequestMapping("/getArticleList")
-    @ResponseBody
-    public ResultMessage getList() {
-        ResultMessage rm = new ResultMessage();
-        List<Article> articles = articleService.getArticleList();
-        rm.setCode(ResultCode.SUCCESS);
-        rm.setMessage("查询成功。");
-        rm.setData(articles);
-        return rm;
-    }
+	@RequestMapping("/getArticleList")
+	@ResponseBody
+	public ResultMessage getList() {
+		ResultMessage rm = new ResultMessage();
+		List<Article> articles = articleService.getArticleList();
+		if (articles != null) {
+			rm.setCode(ResultCode.SUCCESS);
+			rm.setMessage("查询成功。");
+			rm.setData(articles);
+		} else {
+			rm.setCode(ResultCode.EXCP);
+			rm.setMessage("查询失败。");
+			rm.setData(articles);
+		}
+		return rm;
+	}
 
 }

@@ -8,19 +8,19 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import ssm.core.entity.Users;
-import ssm.core.idao.UsersMapper;
+import ssm.core.service.UsersService;
 
 @Controller
 @RequestMapping("/user")
 public class UserController {
 
     @Resource
-    private UsersMapper usersMapper;
+    private UsersService service;
 
     @RequestMapping("/getById")
     public String getSimpleUser(HttpServletRequest req, Model model) {
         int userId = Integer.parseInt(req.getParameter("id"));
-        Users users = usersMapper.selectByPrimaryKey(userId);
+        Users users = service.getUserById(userId);
         model.addAttribute("user", users);
         return "showUser";
     }

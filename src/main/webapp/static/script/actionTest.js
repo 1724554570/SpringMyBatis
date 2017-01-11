@@ -20,9 +20,11 @@ function getQueryString(name) {
 var _allPsot = function(url, data) {
 	if (data) {
 		data = JSON.stringify(data);
+		console.log(data);
 	} else {
 		data = JSON.stringify({});
 	}
+	console.log(data);
 	$.ajax({
 		contentType : "application/json",
 		type : "post",
@@ -75,6 +77,11 @@ $().ready(function() {
 		var _url = _this.attr("data-href");
 		var json = ckURL(_url);
 		console.log(json);
+		var data = {};
+
+		data.startIndex = 1;
+		data.pageSize = 10;
+		json =data;
 		_allPsot(_url, json);
 	});
 });

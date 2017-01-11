@@ -10,11 +10,11 @@
     <body>
         <h2>Hello World!</h2>
         <div class="actionBut">
-            <div class="allBut" data-href="ouser/login">user Login
+            <div class="allBut" data-href="/ouser/login">user Login
             	<input type="hidden" class="username" name="username" value="mms">
             	<input type="hidden" class="userpass" name="userpass" value="123456">
             </div>
-            <div class="allBut" data-href="ouser/userlist">user List
+            <div class="allBut" data-href="/sm/ouser/userlist">user List
             	<input type="hidden" class="startIndex" name="startIndex" value="1">
             	<input type="hidden" class="pageSize" name="pageSize" value="10">
             </div>

@@ -20,7 +20,7 @@ import ssm.core.search.UserSearchParms;
 import ssm.core.service.OUserService;
 
 @Controller
-@RequestMapping("ouser")
+@RequestMapping("/ouser")
 public class OUserController {
 
     @Resource
@@ -71,14 +71,18 @@ public class OUserController {
     @RequestMapping(value = "/userlist")
     @ResponseBody
     public ResultMessage userList(@RequestBody UserSearchParms parms) {
-        System.out.println(parms);
         System.out.println(parms.getStartIndex());
         System.out.println(parms.getPageSize());
         ResultMessage rm = new ResultMessage();
         UserSearchParms usp = oUserService.getUserList(parms);
-        rm.setCode(ResultCode.SUCCESS);
         rm.setData(usp);
-        rm.setMessage("操作成功。");
+        if(usp!=null){
+            rm.setCode(ResultCode.SUCCESS);
+            rm.setMessage("操作成功。");
+        }else{
+            rm.setCode(ResultCode.EXCP);
+            rm.setMessage("操作失败。");
+        }
         return rm;
     }
 

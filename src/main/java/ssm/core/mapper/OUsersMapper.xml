@@ -17,10 +17,6 @@
         id, username, userpass, imgurl, device, ctime, utime, state
     </sql>
 
-    <sql id="Base_Column_List2">
-        id, username, imgurl, device, ctime, utime, state
-    </sql>
-
     <!-- 查询单一用户 -->
     <select id="selectLogin" parameterType="ssm.core.entity.OUsers"
                 resultMap="BaseResultMap">
@@ -32,11 +28,8 @@
     </select>
 
     <!-- 查询用户集合 -->
-    <select id="selectUserList" parameterType="ssm.core.search.UserSearchParms"
-                resultMap="BaseResultMap">
-        select
-        <include refid="Base_Column_List" />
-        from onethink_users
+    <select id="selectUserList" parameterType="ssm.core.search.UserSearchParms" resultMap="BaseResultMap">
+        select id, username, imgurl, device, ctime, utime, state from onethink_users
         <where>
             <if test="searchname != null">
                 `username` like CONCAT('%',#{searchname},'%' )
@@ -45,15 +38,13 @@
         order by ctime desc
     </select>
     <!-- 查询用户总数 -->
-    <select id="selectUserCount" parameterType="ssm.core.search.UserSearchParms"
-                resultMap="BaseResultMap">
+    <select id="selectUserCount" parameterType="ssm.core.search.UserSearchParms" resultMap="BaseResultMap">
         select count(*) total from onethink_users
         <where>
             <if test="searchname != null">
                 `username` like CONCAT('%',#{searchname},'%' )
             </if>
         </where>
-        order by ctime desc
     </select>
 
 

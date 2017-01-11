@@ -10,6 +10,7 @@ public class UserSearchParms {
     private int pageSize;
     private int searchIndex;
     private int totalSize;
+    //private String searchname = null;
     private String searchname = "";
     private List<OUsers> oUsers;
 
@@ -17,7 +18,7 @@ public class UserSearchParms {
         return startIndex;
     }
 
-    public void setStartIndex(int startIndex) {
+    public void setStartIndex(int startIndex) {System.out.println(this.startIndex);
         this.startIndex = startIndex;
     }
 
@@ -42,7 +43,7 @@ public class UserSearchParms {
         return totalSize;
     }
 
-    public void setTotalSize(int totalSize) {
+    public void setTotalSize(int totalSize) {System.out.println(this.totalSize);
         this.totalSize = totalSize;
     }
 
@@ -50,7 +51,7 @@ public class UserSearchParms {
         return searchname;
     }
 
-    public void setSearchname(String searchname) {
+    public void setSearchname(String searchname) {System.out.println(this.searchname);
         this.searchname = searchname;
     }
 
