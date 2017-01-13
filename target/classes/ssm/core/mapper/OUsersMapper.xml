@@ -35,11 +35,11 @@
                 `username` like CONCAT('%',#{searchname},'%' )
             </if>
         </where>
-        order by ctime desc
+        order by ctime desc limit #{searchIndex},#{pageSize}
     </select>
     <!-- 查询用户总数 -->
-    <select id="selectUserCount" parameterType="ssm.core.search.UserSearchParms" resultMap="BaseResultMap">
-        select count(*) total from onethink_users
+    <select id="selectUserCount" parameterType="ssm.core.search.UserSearchParms" resultType="ssm.core.search.UserSearchParms">
+        select count(*) totalSize from onethink_users
         <where>
             <if test="searchname != null">
                 `username` like CONCAT('%',#{searchname},'%' )

@@ -11,18 +11,18 @@ public class UserSearchParms {
     private int searchIndex;
     private int totalSize;
     //private String searchname = null;
-    private String searchname = "";
+    private String searchname;
     private List<OUsers> oUsers;
 
-    public int getStartIndex() {
+    public int getStartIndex() {System.out.println(this.startIndex+"---0");
         return startIndex;
     }
 
-    public void setStartIndex(int startIndex) {System.out.println(this.startIndex);
+    public void setStartIndex(int startIndex) {
         this.startIndex = startIndex;
     }
 
-    public int getPageSize() {
+    public int getPageSize() {System.out.println(this.pageSize+"---pageSize");
         return pageSize;
     }
 
@@ -31,7 +31,7 @@ public class UserSearchParms {
     }
 
     public int getSearchIndex() {
-        this.searchIndex = (this.searchIndex - 1) * this.pageSize;
+        this.searchIndex = (this.startIndex - 1) * this.pageSize;
         return searchIndex;
     }
 
@@ -39,20 +39,20 @@ public class UserSearchParms {
         this.searchIndex = searchIndex;
     }
 
-    public int getTotalSize() {
+    public int getTotalSize() {System.out.println(this.totalSize+"---1");
         return totalSize;
     }
 
-    public void setTotalSize(int totalSize) {System.out.println(this.totalSize);
+    public void setTotalSize(int totalSize) {
         this.totalSize = totalSize;
     }
 
-    public String getSearchname() {
+    public String getSearchname() {System.out.println(this.searchname+"---2");
         return searchname;
     }
 
-    public void setSearchname(String searchname) {System.out.println(this.searchname);
-        this.searchname = searchname;
+    public void setSearchname(String searchname) {
+        this.searchname = searchname == null ? null : searchname.trim();
     }
 
     public List<OUsers> getoUsers() {

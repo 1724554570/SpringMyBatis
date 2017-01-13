@@ -10,7 +10,7 @@
     <body>
         <h2>Hello World!</h2>
         <div class="actionBut">
-            <div class="allBut" data-href="/ouser/login">user Login
+            <div class="allBut" data-href="/sm/ouser/login">user Login
             	<input type="hidden" class="username" name="username" value="mms">
             	<input type="hidden" class="userpass" name="userpass" value="123456">
             </div>

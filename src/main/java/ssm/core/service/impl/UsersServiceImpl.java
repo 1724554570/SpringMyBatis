@@ -15,7 +15,6 @@ public class UsersServiceImpl implements UsersService {
     private UsersMapper usersMapper;
 
     public Users getUserById(int userid) {
-        System.out.println(userid);
         return usersMapper.selectByPrimaryKey(userid);
     }
 }

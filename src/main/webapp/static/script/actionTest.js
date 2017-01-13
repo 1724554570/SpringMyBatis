@@ -1,6 +1,8 @@
 ﻿/**
  * 解析url参数
- * @param {type} name
+ * 
+ * @param {type}
+ *            name
  * @returns {unresolved}
  */
 function getQueryString(name) {
@@ -13,8 +15,11 @@ function getQueryString(name) {
 
 /**
  * 封装ajax请求
- * @param {type} url
- * @param {type} data
+ * 
+ * @param {type}
+ *            url
+ * @param {type}
+ *            data
  * @returns {undefined}
  */
 var _allPsot = function(url, data) {
@@ -52,11 +57,13 @@ $().ready(function() {
 		userpass : ""
 	}, {
 		startIndex : 1,
-		pageSize : 10
+		pageSize : 10,
+		searchname : ""
 	}, ];
 	function ckURL(v) {
 		var data = {};
-		switch (v) {
+		var ck = v.replace("/sm/", "");
+		switch (ck) {
 		case actionURL.login:
 			data.username = "mms";
 			data.userpass = "123456";
@@ -64,6 +71,7 @@ $().ready(function() {
 		case actionURL.userlist:
 			data.startIndex = 1;
 			data.pageSize = 10;
+			data.searchname = "7";
 			break;
 		case actionURL.getArticleList:
 			data.startIndex = 1;
@@ -77,11 +85,10 @@ $().ready(function() {
 		var _url = _this.attr("data-href");
 		var json = ckURL(_url);
 		console.log(json);
-		var data = {};
-
-		data.startIndex = 1;
-		data.pageSize = 10;
-		json =data;
+		// var data = {};
+		// data.startIndex = 1;
+		// data.pageSize = 10;
+		// json = data;
 		_allPsot(_url, json);
 	});
 });
