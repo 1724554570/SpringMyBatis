@@ -71,7 +71,7 @@ $().ready(function() {
 		case actionURL.userlist:
 			data.startIndex = 1;
 			data.pageSize = 10;
-			data.searchname = "7";
+			//data.searchname = "7";
 			break;
 		case actionURL.getArticleList:
 			data.startIndex = 1;
