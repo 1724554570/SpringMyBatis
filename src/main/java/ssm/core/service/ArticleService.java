@@ -13,11 +13,18 @@ public interface ArticleService {
     //int updateByPrimaryKeySelective(Article record);
     //int updateByPrimaryKeyWithBLOBs(Article record);
     //public int updateByPrimaryKey(Article record);
+    
     /**
      * 获取文章集合
-     *
-     * @return
+     * @return 
      */
     public List<Article> getArticleList();
+
+    /**
+     * 获取单条文章
+     * @param id
+     * @return 
+     */
+    Article getByPrimaryKey(Integer id);
 
 }
