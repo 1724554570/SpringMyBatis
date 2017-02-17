@@ -12,12 +12,32 @@ public interface ArticleMapper {
 
     int insertSelective(Article record);
 
+    /**
+     * 
+     * @param id
+     * @return 
+     */
     Article selectByPrimaryKey(Integer id);
 
+    /**
+     * 
+     * @param record
+     * @return 
+     */
     int updateByPrimaryKeySelective(Article record);
 
+    /**
+     * 
+     * @param record
+     * @return 
+     */
     int updateByPrimaryKeyWithBLOBs(Article record);
 
+    /**
+     * 
+     * @param record
+     * @return 
+     */
     int updateByPrimaryKey(Article record);
 
     //Article selAllList(Article article);
