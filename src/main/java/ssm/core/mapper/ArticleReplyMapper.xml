@@ -1,37 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ssm.core.idao.ArticleReplyMapper">
-	<resultMap id="BaseResultMap" type="ssm.core.entity.ArticleReply">
-		<id column="id" jdbcType="INTEGER" property="id" />
-		<result column="add_time" jdbcType="VARCHAR" property="addTime" />
-		<result column="state" jdbcType="BIT" property="state" />
-		<result column="article_id" jdbcType="INTEGER" property="articleId" />
-		<result column="reply_user" jdbcType="VARCHAR" property="replyUser" />
-		<result column="reply_to_id" jdbcType="VARCHAR" property="replyToId" />
-		<result column="reply_to_user" jdbcType="VARCHAR" property="replyToUser" />
+
+	<resultMap id="BaseResultMapAll" type="ssm.core.entity.ArticleReply">
+		<id column="id" property="id" />
+		<result column="add_time" property="addTime" />
+		<result column="state" property="state" />
+		<result column="article_id" property="articleId" />
+		<result column="reply_user" property="replyUser" />
+		<result column="reply_to_id" property="replyToId" />
+		<result column="reply_to_user" property="replyToUser" />
+		<result column="content" property="content" />
 	</resultMap>
-	<resultMap extends="BaseResultMap" id="ResultMapWithBLOBs"
-		type="ssm.core.entity.ArticleReply">
-		<result column="content" jdbcType="LONGVARCHAR" property="content" />
-	</resultMap>
-	<sql id="Base_Column_List">
-		id, add_time, state, article_id, reply_user, reply_to_id,
-		reply_to_user
-	</sql>
-	<sql id="Blob_Column_List">
-		content
-	</sql>
+
 	<select id="selectByPrimaryKey" parameterType="java.lang.Integer"
-		resultMap="ResultMapWithBLOBs">
+		resultMap="BaseResultMapAll">
 		select
 		<include refid="Base_Column_List" />
 		,
 		<include refid="Blob_Column_List" />
 		from onethink_reply
-		where id = #{id,jdbcType=INTEGER}
+		where id = #{id}
 	</select>
 
-	<select id="selectArticleReplies" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+	<select id="selectArticleReplies" parameterType="java.lang.Integer"
+		resultMap="BaseResultMapAll">
 		select
 		<include refid="Base_Column_List" />
 		,
@@ -39,6 +32,5 @@
 		from onethink_reply
 		where article_id = #{articleId}
 	</select>
-
 
 </mapper>
