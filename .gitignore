@@ -1,4 +1,10 @@
 pm.xml
+####target/
 target/classes
 target/m2e-wtp
-target/
+target/com-0.0.1-SNAPSHOT/
+target/maven-status
+target/surefire-reports
+target/test-classes
+target/com-0.0.1-SNAPSHOT.war
+
