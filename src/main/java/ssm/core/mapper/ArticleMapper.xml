@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ssm.core.idao.ArticleMapper">
+
+    <resultMap id="BaseResultMap" type="ssm.core.entity.Article">
+        <id column="id" property="id" />
+        <result column="productname" property="productname" />
+        <result column="proctime" property="proctime" />
+        <result column="proutime" property="proutime" />
+        <result column="foruser" property="foruser" />
+        <result column="prostate" property="prostate" />
+        <result column="propower" property="propower" />
+        <result column="exadmin" property="exadmin" />
+    </resultMap>
+
+    <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs"
+                   type="ssm.core.entity.Article">
+        <result column="productdesc" property="productdesc" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, productname, proctime, proutime, foruser, prostate,propower, exadmin,
+        productdesc
+    </sql>
+    
+    <!--selectByPrimaryKey-->
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer"
+                resultMap="ResultMapWithBLOBs">
+        select
+        <include refid="Base_Column_List" />
+        from onethink_article
+        where id = #{id}
+    </select>
+    
+    <!--deleteByPrimaryKey-->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from
+        onethink_article
+        where id = #{id}
+    </delete>
+    
+    <!--insert-->
+    <insert id="insert" parameterType="ssm.core.entity.Article">
+        insert into onethink_article
+        (id, productname, proctime,
+        proutime, foruser, prostate,
+        propower,
+        exadmin, productdesc
+        )
+        values (#{id},
+        #{productname},#{proctime},#{proutime}, #{foruser},
+        #{prostate},#{propower}, #{exadmin}, #{productdesc})
+    </insert>
+    
+    <!--insertSelective-->
+    <insert id="insertSelective" parameterType="ssm.core.entity.Article">
+        insert into onethink_article
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="productname != null">
+                productname,
+            </if>
+            <if test="proctime != null">
+                proctime,
+            </if>
+            <if test="proutime != null">
+                proutime,
+            </if>
+            <if test="foruser != null">
+                foruser,
+            </if>
+            <if test="prostate != null">
+                prostate,
+            </if>
+            <if test="propower != null">
+                propower,
+            </if>
+            <if test="exadmin != null">
+                exadmin,
+            </if>
+            <if test="productdesc != null">
+                productdesc,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id},
+            </if>
+            <if test="productname != null">
+                #{productname},
+            </if>
+            <if test="proctime != null">
+                #{proctime},
+            </if>
+            <if test="proutime != null">
+                #{proutime},
+            </if>
+            <if test="foruser != null">
+                #{foruser},
+            </if>
+            <if test="prostate != null">
+                #{prostate},
+            </if>
+            <if test="propower != null">
+                #{propower},
+            </if>
+            <if test="exadmin != null">
+                #{exadmin},
+            </if>
+            <if test="productdesc != null">
+                #{productdesc},
+            </if>
+        </trim>
+    </insert>
+    
+    <!--updateByPrimaryKeySelective-->
+    <update id="updateByPrimaryKeySelective" parameterType="ssm.core.entity.Article">
+        update onethink_article
+        <set>
+            <if test="productname != null">
+                productname = #{productname},
+            </if>
+            <if test="proctime != null">
+                proctime = #{proctime},
+            </if>
+            <if test="proutime != null">
+                proutime = #{proutime},
+            </if>
+            <if test="foruser != null">
+                foruser = #{foruser},
+            </if>
+            <if test="prostate != null">
+                prostate = #{prostate},
+            </if>
+            <if test="propower != null">
+                propower = #{propower},
+            </if>
+            <if test="exadmin != null">
+                exadmin = #{exadmin},
+            </if>
+            <if test="productdesc != null">
+                productdesc = #{productdesc},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--updateByPrimaryKeyWithBLOBs-->
+    <update id="updateByPrimaryKeyWithBLOBs" parameterType="ssm.core.entity.Article">
+        update
+        onethink_article
+        set productname = #{productname},
+        proctime =
+        #{proctime},
+        proutime = #{proutime},
+        foruser = #{foruser},
+        prostate =
+        #{prostate},
+        propower = #{propower},
+        exadmin = #{exadmin},
+        productdesc =
+        #{productdesc}
+        where id = #{id}
+    </update>
+    
+    <!--updateByPrimaryKey-->
+    <update id="updateByPrimaryKey" parameterType="ssm.core.entity.Article">
+        update
+        onethink_article
+        set productname = #{productname},
+        proctime =
+        #{proctime},
+        proutime = #{proutime},
+        foruser = #{foruser},
+        prostate =
+        #{prostate},
+        propower = #{propower},
+        exadmin = #{exadmin}
+        where id =
+        #{id}
+    </update>
+    
+    <!--selAllList-->
+    <select id="selAllList" resultMap="BaseResultMapAll">
+        select
+        <include refid="Base_Column_List" />
+        from onethink_article
+    </select>
+
+    <resultMap id="BaseResultMapAll" type="ssm.core.entity.Article">
+        <id column="id" property="id" />
+        <result column="productname" property="productname" />
+        <result column="proctime" property="proctime" />
+        <result column="proutime" property="proutime" />
+        <result column="foruser" property="foruser" />
+        <result column="productdesc" property="productdesc" />
+        <result column="prostate" property="prostate" />
+        <result column="propower" property="propower" />
+        <result column="exadmin" property="exadmin" />
+    </resultMap>
+
+</mapper>

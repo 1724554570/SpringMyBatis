@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ssm.core.idao.OUsersMapper">
+
+    <resultMap id="BaseResultMap" type="ssm.core.entity.OUsers">
+        <id column="id" property="id" />
+        <result column="username" property="username" />
+        <result column="userpass" property="userpass" />
+        <result column="imgurl" property="imgurl" />
+        <result column="device" property="device" />
+        <result column="ctime" property="ctime" />
+        <result column="utime" property="utime" />
+        <result column="state" property="state" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, username, userpass, imgurl, device, ctime, utime, state
+    </sql>
+
+    <!-- 查询单一用户 -->
+    <select id="selectLogin" parameterType="ssm.core.entity.OUsers"
+                resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from onethink_users
+        where username = #{username} and userpass =
+        #{userpass}
+    </select>
+
+    <!-- 查询用户集合 -->
+    <select id="selectUserList" parameterType="ssm.core.search.UserSearchParms" resultMap="BaseResultMap">
+        select id, username, imgurl, device, ctime, utime, state from onethink_users
+        <where>
+            <if test="searchname != null">
+                `username` like CONCAT('%',#{searchname},'%' )
+            </if>
+        </where>
+        order by ctime desc limit #{searchIndex},#{pageSize}
+    </select>
+    <!-- 查询用户总数 -->
+    <select id="selectUserCount" parameterType="ssm.core.search.UserSearchParms" resultType="ssm.core.search.UserSearchParms">
+        select count(*) totalSize from onethink_users
+        <where>
+            <if test="searchname != null">
+                `username` like CONCAT('%',#{searchname},'%' )
+            </if>
+        </where>
+    </select>
+
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer"
+                resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from onethink_users
+        where id = #{id}
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from
+        onethink_users
+        where id = #{id}
+    </delete>
+
+    <insert id="insert" parameterType="ssm.core.entity.OUsers">
+        insert into onethink_users
+        (id, username, userpass,
+        imgurl, device, ctime,
+        utime, state)
+        values
+        (#{id}, #{username},
+        #{userpass},
+        #{imgurl}, #{device}, #{ctime},
+        #{utime}, #{state})
+    </insert>
+
+    <insert id="insertSelective" parameterType="ssm.core.entity.OUsers">
+        insert into onethink_users
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="username != null">
+                username,
+            </if>
+            <if test="userpass != null">
+                userpass,
+            </if>
+            <if test="imgurl != null">
+                imgurl,
+            </if>
+            <if test="device != null">
+                device,
+            </if>
+            <if test="ctime != null">
+                ctime,
+            </if>
+            <if test="utime != null">
+                utime,
+            </if>
+            <if test="state != null">
+                state,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id},
+            </if>
+            <if test="username != null">
+                #{username},
+            </if>
+            <if test="userpass != null">
+                #{userpass},
+            </if>
+            <if test="imgurl != null">
+                #{imgurl},
+            </if>
+            <if test="device != null">
+                #{device},
+            </if>
+            <if test="ctime != null">
+                #{ctime},
+            </if>
+            <if test="utime != null">
+                #{utime},
+            </if>
+            <if test="state != null">
+                #{state},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateByPrimaryKeySelective" parameterType="ssm.core.entity.OUsers">
+        update onethink_users
+        <set>
+            <if test="username != null">
+                username = #{username},
+            </if>
+            <if test="userpass != null">
+                userpass = #{userpass},
+            </if>
+            <if test="imgurl != null">
+                imgurl = #{imgurl},
+            </if>
+            <if test="device != null">
+                device = #{device},
+            </if>
+            <if test="ctime != null">
+                ctime = #{ctime},
+            </if>
+            <if test="utime != null">
+                utime = #{utime},
+            </if>
+            <if test="state != null">
+                state = #{state},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <update id="updateByPrimaryKey" parameterType="ssm.core.entity.OUsers">
+        update
+        onethink_users
+        set username = #{username},
+        userpass = #{userpass},
+        imgurl = #{imgurl},
+        device = #{device},
+        ctime = #{ctime},
+        utime =
+        #{utime},
+        state = #{state}
+        where id = #{id}
+    </update>
+
+</mapper>
