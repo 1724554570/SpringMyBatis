@@ -23,11 +23,14 @@ function getQueryString(name) {
  * @returns {undefined}
  */
 var _allPsot = function(url, data) {
-	if (data) {
+	if (typeof data === 'object') {
 		data = JSON.stringify(data);
 		console.log(data);
 	} else {
-		data = JSON.stringify({});
+		if(typeof data === 'string'){
+			
+		}
+		//data = JSON.stringify({});
 	}
 	console.log(data);
 	$.ajax({
@@ -46,49 +49,17 @@ var _allPsot = function(url, data) {
 		}
 	});
 };
+
 $().ready(function() {
-	var actionURL = {
-		login : "ouser/login",
-		userlist : "ouser/userlist",
-		getArticleList : "article/getArticleList"
-	};
-	var actionData = [ {
-		username : "",
-		userpass : ""
-	}, {
-		startIndex : 1,
-		pageSize : 10,
-		searchname : ""
-	}, ];
-	function ckURL(v) {
-		var data = {};
-		var ck = v.replace("/com/", "");
-		switch (ck) {
-		case actionURL.login:
-			data.username = "mms";
-			data.userpass = "123456";
-			break;
-		case actionURL.userlist:
-			data.startIndex = 1;
-			data.pageSize = 10;
-			//data.searchname = "7";
-			break;
-		case actionURL.getArticleList:
-			data.startIndex = 1;
-			data.pageSize = 10;
-			break;
-		}
-		return data;
+	function toJSONparse(n) {
+		return JSON.parse(n);
 	}
 	$(".allBut").on("click", function() {
 		var _this = $(this);
 		var _url = _this.attr("data-href");
-		var json = ckURL(_url);
-		console.log(json);
-		// var data = {};
-		// data.startIndex = 1;
-		// data.pageSize = 10;
-		// json = data;
-		_allPsot(_url, json);
+		var stringJson = toJSONparse(_this.attr("data-parms"));
+		console.log(stringJson,typeof stringJson);
+		//return;
+		_allPsot(_url, stringJson);
 	});
 });

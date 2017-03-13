@@ -18,5 +18,13 @@ public interface ReplyService {
 	 * @return
 	 */
 	public List<ArticleReply> listReply(Integer articleId);
+	
+	
+	/**
+	 * 插入数据
+	 * @param articleReply
+	 * @return
+	 */
+	int insertReplys(ArticleReply articleReply);
 
 }

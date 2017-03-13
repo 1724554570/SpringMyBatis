@@ -2,6 +2,7 @@
 html,body{
     width: 100%;
     height: 100%;
+    font-family: "Microsoft YaHei";
 }
 
 .actionBut{
@@ -10,14 +11,17 @@ html,body{
     border-bottom: 1px solid wheat;
     
     .allBut{
-        width: 100px;
+        width: 500px;
+        margin-top: 20px;
         height: 22px;
         line-height: 22px;
-        display: inline-block;
-        text-align: center;
+        text-indent: 30px;
+        /*display: inline-block;*/
+        text-align: left;
         border: 1px solid #ccc;
         color: #fff;
         background: #428bca;
+        cursor: pointer;
     }
     
     .allBut:hover{

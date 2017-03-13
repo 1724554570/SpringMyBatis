@@ -12,10 +12,12 @@
 		<result column="reply_to_user" property="replyToUser" />
 		<result column="content" property="content" />
 	</resultMap>
-	
+
 	<sql id="Base_Column_List">
-        id, add_time, state, article_id, reply_user, reply_to_id, reply_to_user, content
-    </sql>
+		id, add_time, state, article_id, reply_user, reply_to_id,
+		reply_to_user,
+		content
+	</sql>
 
 	<select id="selectByPrimaryKey" parameterType="java.lang.Integer"
 		resultMap="BaseResultMapAll">
@@ -32,5 +34,61 @@
 		from onethink_reply
 		where article_id = #{articleId}
 	</select>
+
+	<insert id="insertReply" parameterType="ssm.core.entity.ArticleReply">
+		insert into onethink_reply
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="addTime != null">
+				add_time,
+			</if>
+			<if test="state != null">
+				state,
+			</if>
+			<if test="articleId != null">
+				article_id,
+			</if>
+			<if test="replyUser != null">
+				reply_user,
+			</if>
+			<if test="replyToId != null">
+				reply_to_id,
+			</if>
+			<if test="replyToUser != null">
+				reply_to_user,
+			</if>
+			<if test="content != null">
+				content,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id},
+			</if>
+			<if test="addTime != null">
+				#{addTime},
+			</if>
+			<if test="state != null">
+				#{state},
+			</if>
+			<if test="articleId != null">
+				#{articleId},
+			</if>
+			<if test="replyUser != null">
+				#{replyUser},
+			</if>
+			<if test="replyToId != null">
+				#{replyToId},
+			</if>
+			<if test="replyToUser != null">
+				#{replyToUser},
+			</if>
+			<if test="content != null">
+				#{content},
+			</if>
+		</trim>
+	</insert>
 
 </mapper>

@@ -21,7 +21,7 @@ import ssm.core.search.UserSearchParms;
 import ssm.core.service.OUserService;
 
 @Controller
-@RequestMapping("/ouser")
+@RequestMapping("/ouserAction")
 public class OUserController {
 
     @Resource

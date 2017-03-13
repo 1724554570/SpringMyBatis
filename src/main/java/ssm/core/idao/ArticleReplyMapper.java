@@ -19,5 +19,11 @@ public interface ArticleReplyMapper {
      */
     public List<ArticleReply> selectArticleReplies(Integer articleId);
     
+    /**
+     * 
+     * @param articleReply
+     * @return
+     */
+	int insertReply(ArticleReply articleReply);
     
 }

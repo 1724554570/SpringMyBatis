@@ -17,7 +17,7 @@ import ssm.core.service.ArticleService;
 import ssm.core.service.ReplyService;
 
 @Controller
-@RequestMapping("/article")
+@RequestMapping("/articleAction")
 public class ArticleController {
 
 	@Resource
@@ -61,5 +61,7 @@ public class ArticleController {
 		}
 		return rm;
 	}
+        
+        
 
 }

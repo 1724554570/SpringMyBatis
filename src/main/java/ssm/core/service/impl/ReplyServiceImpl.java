@@ -34,4 +34,13 @@ public class ReplyServiceImpl implements ReplyService {
 		return articleReplies;
 	}
 
+	/**
+	 * 插入一条数据
+	 */
+	public int insertReplys(ArticleReply articleReply) {
+		// TODO Auto-generated method stub
+		int resId = replyMapper.insertReply(articleReply);
+		return resId;
+	}
+
 }
