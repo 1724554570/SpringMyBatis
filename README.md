@@ -13,3 +13,6 @@ git remote add origin https://github.com/1724554570/SpringMyBatis.git
 
 git push -u origin master
 
+
+Build Path -> Configure Build Path -> Source
+
