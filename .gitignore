@@ -11,3 +11,4 @@ target/com-0.0.1-SNAPSHOT.war
 WebContent/static/css/actin.css.map
 WebContent/static/css/reset.css.map
 
+/target/
