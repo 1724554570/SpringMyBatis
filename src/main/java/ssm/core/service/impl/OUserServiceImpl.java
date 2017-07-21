@@ -44,4 +44,13 @@ public class OUserServiceImpl implements OUserService {
 		parms.setTotalSize(parms2.getTotalSize());
 		return parms;
 	}
+
+	/**
+	 * 写入注册信息
+	 */
+	public int insertRegister(OUsers oUsers) {
+		int number = oUsersMapper.insertSelective(oUsers);
+		System.out.println(number);
+		return number;
+	}
 }

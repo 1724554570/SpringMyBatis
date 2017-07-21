@@ -12,6 +12,13 @@ public interface OUserService {
      * @return
      */
     public OUsers getLogin(OUsers oUsers);
+    
+    /**
+     *  注册信息
+     * @param oUsers
+     * @return
+     */
+    public int insertRegister(OUsers oUsers);
 
     /**
      * 用户集合
