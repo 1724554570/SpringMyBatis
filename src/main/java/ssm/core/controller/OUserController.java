@@ -72,6 +72,9 @@ public class OUserController {
     @RequestMapping(value = "/userlist")
     @ResponseBody
     public ResultMessage userList(@RequestBody UserSearchParms parms) {
+    	System.out.println(parms);
+    	System.out.println(parms.getStartIndex());
+    	System.out.println(parms.getPageSize());
         ResultMessage rm = new ResultMessage();
         UserSearchParms usp = oUserService.getUserList(parms);
         if (usp != null) {
