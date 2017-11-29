@@ -1,14 +1,12 @@
 pm.xml
-####target/
-target/classes
-target/m2e-wtp
-target/com-0.0.1-SNAPSHOT/
-target/maven-status
-target/surefire-reports
-target/test-classes
-target/com-0.0.1-SNAPSHOT.war
+/target
+/target/
+/target/*
+.classpath
+.project
+.settings
+.settings/
 
 WebContent/static/css/actin.css.map
 WebContent/static/css/reset.css.map
 
-/target/
