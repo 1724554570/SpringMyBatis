@@ -10,3 +10,5 @@ pm.xml
 WebContent/static/css/actin.css.map
 WebContent/static/css/reset.css.map
 
+cc-api/node_modules
+cc-api/package-lock.json
