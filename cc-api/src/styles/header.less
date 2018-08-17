@@ -5,7 +5,7 @@
     background: #202329;
     box-shadow: 0 1px 8px rgba(0, 0, 0, .06);
     position: relative;
-    z-index: 1004;
+    z-index: 2;
     zoom: 1;
     margin-bottom: 10px;
     .header-inner {
@@ -59,6 +59,17 @@
         a {
             color: #00d7c6 !important;
         }
+        color: #00d7c6 !important;
+    }
+    .nav-a {
+        &:hover {
+            color: #00d7c6 !important;
+        }
+        display: inline-block;
+        vertical-align: top;
+        text-align: center;
+        font-size: 14px;
+        margin: 0 12px;
     }
 }
 
@@ -85,16 +96,14 @@
     }
 }
 
-#body-inner{
-    position: relative;
-    width: 1000px;
-    max-width: 1000px;
-    margin: 0 auto;
+#body-inner {
+    position: relative; // width: 1000px;
+    // max-width: 1000px;
+    // margin: 0 auto;
 }
 
 #footer {
-    background: #fff;
-    // padding: 20px 0 10px;
+    background: #fff; // padding: 20px 0 10px;
     margin-top: 43px;
     position: relative;
     z-index: 22;
